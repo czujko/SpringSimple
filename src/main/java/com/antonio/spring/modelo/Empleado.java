@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.transaction.Transactional;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Transactional
@@ -12,9 +14,14 @@ public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotEmpty
     private String nombre;
+    @NotEmpty
+    @Email
     private String email;
+    @NotEmpty
     private String departamento;
+    @NotEmpty
     private String avatar;
 
     public Empleado() {

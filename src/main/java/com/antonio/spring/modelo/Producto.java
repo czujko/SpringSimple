@@ -5,15 +5,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.transaction.Transactional;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Transactional
 public class Producto {	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;	
+	private long id;
+	@NotEmpty
 	private String nombre;
+	@NotEmpty
 	private int precio;
+	@NotEmpty
 	private String imagen;
 	
 	public Producto() {		

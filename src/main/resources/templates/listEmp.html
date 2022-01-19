@@ -25,7 +25,7 @@
     
     <div class="row" th:each="empleado : ${empleadosLista}">
       <div class="col-1" th:text="${empleado.id}">ID</div>
-      <div class ="col-2"><img th:src="@{${empleado.avatar} ?'https://api.adorable.io/avatars/64/{nombre}.png'(nombre=${empleado.nombre})}" width="64px"" alt=""></div>
+      <div class ="col-2"><img th:src="${empleado.avatar}"/> </div>
       <div class="col-2" th:text="${empleado.nombre}">loquesea</div>
       <div class="col-2" th:text="${empleado.email}"></div>
       <div class="col-2" th:text="${empleado.departamento}"></div>
