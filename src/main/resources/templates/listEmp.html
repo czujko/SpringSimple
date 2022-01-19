@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+
+    <h1>Listado de empleados</h1>
+    
+    <div class="row" th:each="empleado : ${empleadosLista}">
+      <div class="col-1" th:text="${empleado.id}">ID</div>
+      <div class ="col-2"><img th:src="@{${empleado.avatar} ?'https://api.adorable.io/avatars/64/{nombre}.png'(nombre=${empleado.nombre})}" width="64px"" alt=""></div>
+      <div class="col-2" th:text="${empleado.nombre}">loquesea</div>
+      <div class="col-2" th:text="${empleado.email}"></div>
+      <div class="col-2" th:text="${empleado.departamento}"></div>
+      <div class="col-1">
+        <a class="btn btn-primary" th:href="@{/empleado/edit/__${empleado.id}__}"  role="button" >Cambia</a>
+      </div>
+      <div class="col-1">
+        <a class="btn btn-primary" th:href="@{/empleado/delete/__${empleado.id}__}" role="button" >Borra</a>
+      </div>
+    </div>
+  </body>
+</html>
